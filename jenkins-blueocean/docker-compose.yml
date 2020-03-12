@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  jenkins-docker:
+    image: docker:dind
+    volumes:
+      - "jenkins-docker-certs:/certs/client"
+      - "jenkins-data:/var/jenkins_home"
+      - "~/:/home"
+    ports:
+      - "4596:3000"
+    container_name: jenkins-docker
+    privileged: true
+    environment:
+      - DOCKER_TLS_CERTDIR=/certs
+  jenkins-tutorial:
+    image: jenkinsci/blueocean
+    container_name: jenkins-tutorial
+    volumes:
+      - "jenkins-data:/var/jenkins_home"
+      - "jenkins-docker-certs:/certs/client:ro"
+      - "~/:/home"
+    environment:
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_CERT_PATH=/certs/client
+      - DOCKER_TLS_VERIFY=1
+    ports:
+      - "4597:8080"
+networks:
+  default:
+    driver: bridge
+volumes:
+  jenkins-docker-certs:
+  jenkins-data:
