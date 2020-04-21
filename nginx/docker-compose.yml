@@ -4,6 +4,7 @@ services:
     image: nginx:latest
     container_name: ${CONTAINER_NAME}
     volumes:
-      - ./dist:/usr/share/nginx/html
+      - ${DIST}:/dist
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - ${PORT}:80
