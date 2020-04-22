@@ -1,0 +1,14 @@
+version: "3"
+services:
+  code-server:
+    image: codercom/code-server:latest
+    container_name: code-server
+    restart: always
+    ports:
+      - ${PORT}:8080
+    volumes:
+      - ${PROJECT_HOME}:/home/coder/project
+    environment:
+      - PASSWORD=${PASSWORD}
+    user: ${CURRENT_UID}
+    command: --auth password
