@@ -1,0 +1,9 @@
+version: "3"
+services:
+  centos:
+    image: centos:latest
+    container_name: ${CONTAINER_NAME}
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./datas:/data
