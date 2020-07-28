@@ -1,0 +1,9 @@
+version: "3"
+services:
+  theia:
+    image: theiaide/theia
+    container_name: ${CONTAINER_NAME}
+    ports:
+      - ${PORT}:3000
+    volumes:
+      - ./volume:/home/project:cached
