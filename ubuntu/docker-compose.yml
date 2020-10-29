@@ -1,0 +1,12 @@
+version: "3"
+services:
+  ubuntu:
+    build: .
+    container_name: gue_ubuntu
+    stdin_open: true
+    tty: true
+    ports:
+      - "1111:22"
+    volumes:
+      - ./volume:/root/docker_volume
+      - /var/run/docker.sock:/var/run/docker.sock
