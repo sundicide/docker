@@ -1,0 +1,9 @@
+version: "3"
+services:
+  coral:
+    build: .
+    container_name: r-test
+    ports:
+      - 9001:8080
+    command:
+      ['R', '-e', "shiny::runApp(appDir='.', host='0.0.0.0', port=8080)"]
