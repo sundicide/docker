@@ -1,0 +1,11 @@
+version: "3"
+services:
+  conda:
+    build: .
+    container_name: gue-conda-jupyter-rdkit
+    volumes:
+      - ./volumes:/opt/notebooks
+    ports:
+      - 8888:8888
+    command:
+      ["/opt/conda/bin/jupyter", "notebook", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser", "--allow-root"]
