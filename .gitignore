@@ -5,3 +5,5 @@ mongo/db
 
 conda_jupyter_rdkit/volumes/.*
 conda_jupyter_rdkit/volumes/*.ipynb
+
+.env
