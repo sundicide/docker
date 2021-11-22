@@ -1,0 +1,10 @@
+version: "3"
+services:
+  ijavascript:
+    build: .
+    container_name: "ijavascript-notebook"
+    ports:
+      - 8888:8888
+    volumes:
+      - ./volumes:/home/jovyan/work
+    command: jupyter notebook
