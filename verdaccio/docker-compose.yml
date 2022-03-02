@@ -1,0 +1,11 @@
+version: '3'
+services:
+  verdaccio:
+    image: verdaccio/verdaccio
+    container_name: verdacio
+    volumes:
+      #- ${V_PATH}/conf:/verdaccio/conf
+      - ${V_PATH}/storage:/verdaccio/storage
+      - ${V_PATH}/plugins:/verdaccio/plugins
+    ports:
+      - ${PORT}:4873
