@@ -1,0 +1,19 @@
+{
+  "name": "NVM ZSH DevContainer",
+  "build": {
+      "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+      "vscode": {
+          "extensions": [
+            "ms-azuretools.vscode-docker",
+            "mhutchie.git-graph",
+            "PKief.material-icon-theme"
+          ]
+      }
+  },
+  "remoteUser": "vscode",
+  "features": {
+      "ghcr.io/devcontainers/features/common-utils:2": {}
+  }
+}
