@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  fluentd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./fluentd/conf:/fluentd/etc
+      - ./fluentd/log:/fluentd/log
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    networks:
+      - logging-network
+
+  app:
+    image: node:12
+    container_name: fluentd-sender-nodejs
+    volumes:
+      - ./app:/app
+    networks:
+      - logging-network
+    working_dir: /app
+    command: "tail -f /dev/null"
+
+networks:
+  logging-network:
+    driver: bridge
